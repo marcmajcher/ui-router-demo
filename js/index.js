@@ -6,9 +6,9 @@
   angular.module('demo', ['ui.router'])
     .config(demoConfig);
 
-  demoConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  demoConfig.$inject = ['$stateProvider', '$locationProvider'];
 
-  function demoConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+  function demoConfig($stateProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider
@@ -19,7 +19,7 @@
       })
       .state({
         name: 'user',
-        url: '/user',
+        url: '/user/:id',
         component: 'user'
       })
       .state({

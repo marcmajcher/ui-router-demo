@@ -9,10 +9,14 @@
       templateUrl: '/t/user.html'
     });
 
-  function UserController() {
+  UserController.$inject = ['$stateParams'];
+
+  function UserController($stateParams) {
     const vm = this;
 
-    vm.header = 'USER';
+    vm.$onInit = function init() {
+      vm.header = `USER ${$stateParams.id}`;
+    };
   }
 
 })();
